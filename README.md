@@ -1,4 +1,4 @@
-Fertilizer Prediction Model
+Fertilizer Prediction Model:
 This project predicts the top-3 recommended fertilizers for given crop and soil conditions using machine learning. The model is trained on an agricultural dataset (train.csv), tested on an unseen dataset (test.csv), and produces predictions suitable for submission in a competition format.
 
 Table of Contents
