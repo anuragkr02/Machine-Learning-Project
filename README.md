@@ -1,116 +1,66 @@
-Fertilizer Prediction Model:
-This project predicts the top-3 recommended fertilizers for given crop and soil conditions using machine learning. The model is trained on an agricultural dataset (train.csv), tested on an unseen dataset (test.csv), and produces predictions suitable for submission in a competition format.
+🌱 Fertilizer Prediction Model
+Unlock optimal crop yields with smart fertilizer recommendations! This machine learning project predicts the top-3 fertilizers for any given crop and soil condition, streamlining the decision-making process for farmers and agronomists.
 
-Table of Contents
-Project Structure
+📚 Table of Contents
+  1.Project Structure
+  2.Setup & Requirements
+  3.Data Description
+  4.Approach
+  5.How to Run
+  6.Outputs
+  7.References
 
-Setup and Requirements
+  🗂️ Project Structure
+      File/Folder	Description
+      Predicting_Fertilizers.ipynb	Jupyter notebook for data processing, modeling, and prediction.
+      train.csv	Training data with fertilizer labels.
+      test.csv	Unlabeled data for predictions.
+      Submission_File.csv	Output: test set with top-3 predicted fertilizers per sample.
 
-Data Description
+  ⚙️ Setup & Requirements
+      Python 3.7+
+      Required libraries:
+      pandas
+      numpy
+      seaborn
+      matplotlib
+      scikit-learn
+      xgboost    
+      
+🌾 Data Description
+   Each record in the dataset contains:
+   Temperature: Numeric
+   Humidity: Numeric
+   Moisture: Numeric
+   Soil Type: Categorical (e.g., clay, loam)
+   Crop Type: Categorical (e.g., wheat, rice)
+   Nitrogen, Phosphorous, Potassium: Numeric nutrient values
+   Fertilizer Name: (train only) Target label
 
-Approach
+   🔎 Approach
+      A) Exploratory Data Analysis (EDA)
+      1.Visual inspection of missing values & fertilizer distribution
+      2.Feature correlation analysis with informative plots
+      B) Data Preprocessing
+      1.Impute or handle missing values
+      2.Label encode categorical features (soil, crop types)
+      3.Standardize numerical data for better model performance
+      C) Modeling
+      1.Utilize an XGBoost multi-class classifier (multi:softprob)
+      2.Preserve label distribution using stratified train-validation split
+      3.Tune hyperparameters with early stopping & regularization to avoid overfitting
+      D) Evaluation
+      1.Assess with MAP@3 (Mean Average Precision at top 3 recommendations)
+      E) Prediction Workflow
+      1.Output top-3 fertilizer predictions per test case
+      2.Export results in the required competition submission format
 
-How to Run
+   📤 Outputs
+       Submission_File.csv
+       --> id: Sample identifier
+       --> Fertilizer Name: Space-separated top-3 fertilizer recommendations for each test entry
 
-Outputs
-
-References
-
-Project Structure
-Predicting_Fertilizers.ipynb — Main notebook containing code for data preprocessing, model training, evaluation, and prediction.
-
-train.csv — Training dataset with labeled fertilizer recommendations.
-
-test.csv — Testing dataset without fertilizer label.
-
-Submission_File.csv — Output file with predicted fertilizer recommendations for test set.
-
-Setup and Requirements
-Python 3.7+
-
-Libraries:
-
-pandas
-
-numpy
-
-seaborn
-
-matplotlib
-
-scikit-learn
-
-xgboost
-
-Install all requirements with:
-
-bash
-pip install -r requirements.txt
-Data Description
-Each data point includes:
-
-Temparature: Numeric value.
-
-Humidity: Numeric value.
-
-Moisture: Numeric value.
-
-Soil Type: Categorical variable.
-
-Crop Type: Categorical variable.
-
-Nitrogen, Potassium, Phosphorous: Numeric soil nutrients.
-
-Fertilizer Name: (train only) Target categorical variable.
-
-Approach
-Exploratory Data Analysis
-
-Visualized missing values and target distribution.
-
-Analyzed correlation among features.
-
-Preprocessing
-
-Handled missing values (if any exist).
-
-Label-encoded categorical variables for both train and test data.
-
-Standard-scaled numerical features.
-
-Modeling
-
-Used XGBoost classifier for multi-class prediction (multi:softprob).
-
-Stratified data split for train/validation to preserve class distribution.
-
-Hyperparameter tuning with early stopping and regularization to prevent overfitting.
-
-Evaluation
-
-Evaluated performance using MAP@3 (mean average precision at 3), i.e., correct fertilizer predictions among the top-3 recommended.
-
-Prediction
-
-Produced top-3 fertilizer recommendations per input row in test.csv.
-
-Saved submission file for further evaluation.
-
-How to Run
-Place train.csv and test.csv in the project directory.
-
-Open and run all cells in Predicting_Fertilizers.ipynb sequentially.
-
-The final output will be saved as Submission_File.csv.
-
-Outputs
-Submission_File.csv: Contains two columns:
-
-id: Sample identifier.
-
-Fertilizer Name: Space-separated, top-3 predicted fertilizer names for each test sample.
-
-References
-The code includes extensive comments and plots for EDA, correlation, and model evaluation.
-
-All code is provided in the notebook for full reproducibility
+  📖 References
+      --> Detailed, well-commented code for complete transparency
+      -->Visual EDA and performance analysis within the notebook
+      -->Reproducible from end-to-end with example plots and explanations
